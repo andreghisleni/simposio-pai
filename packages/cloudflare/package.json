@@ -1,0 +1,27 @@
+{
+  "name": "@simposio-pai/cloudflare",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.509.0",
+    "@aws-sdk/s3-request-presigner": "3.509.0",
+    "@simposio-pai/env": "workspace:*"
+  },
+  "devDependencies": {
+    "@simposio-pai/tsconfig": "workspace:*",
+    "@simposio-pai/prettier": "workspace:*",
+    "@simposio-pai/eslint-config": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@simposio-pai/eslint-config/lib"
+    ]
+  },
+  "prettier": "@simposio-pai/prettier"
+}

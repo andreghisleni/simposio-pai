@@ -1,0 +1,25 @@
+{
+  "name": "@simposio-pai/dayjs",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10"
+  },
+  "devDependencies": {
+    "@simposio-pai/tsconfig": "workspace:*",
+    "@simposio-pai/prettier": "workspace:*",
+    "@simposio-pai/eslint-config": "workspace:*"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@simposio-pai/eslint-config/lib"
+    ]
+  },
+  "prettier": "@simposio-pai/prettier"
+}

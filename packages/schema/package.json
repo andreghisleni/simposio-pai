@@ -1,0 +1,26 @@
+{
+  "name": "@simposio-pai/schema",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@simposio-pai/eslint-config": "workspace:*",
+    "@simposio-pai/prettier": "workspace:*",
+    "@simposio-pai/tsconfig": "workspace:*",
+    "tsx": "4.7.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@simposio-pai/eslint-config/lib"
+    ]
+  },
+  "prettier": "@simposio-pai/prettier"
+}

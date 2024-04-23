@@ -1,0 +1,38 @@
+{
+  "name": "@simposio-pai/prisma",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "db:generate": "pnpm env:load prisma generate",
+    "db:migrate": "pnpm env:load prisma migrate dev",
+    "db:studio": "pnpm env:load prisma studio",
+    "lint": "eslint .",
+    "env:load": "dotenv -e ../../.env --"
+  },
+  "dependencies": {
+    "@simposio-pai/env": "workspace:*",
+    "@neondatabase/serverless": "^0.7.2",
+    "@prisma/adapter-neon": "^5.11.0",
+    "@prisma/client": "5.11.0",
+    "dotenv-cli": "7.3.0",
+    "ws": "^8.16.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@simposio-pai/eslint-config": "workspace:*",
+    "@simposio-pai/prettier": "workspace:*",
+    "@simposio-pai/tsconfig": "workspace:*",
+    "@types/ws": "^8.5.10",
+    "prisma": "^5.11.0",
+    "tsx": "4.7.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@simposio-pai/eslint-config/lib"
+    ]
+  },
+  "prettier": "@simposio-pai/prettier"
+}

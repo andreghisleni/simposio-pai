@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../client"
+
+  // previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String  @id @default(uuid())
+  name  String
+  email String  @unique
+  image String?
+
+  emailVerified DateTime?
+
+  passwordHash String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions Session[]
+  Account  Account[]
+
+  @@map("users")
+}
+
+model Session {
+  id           String @id @default(uuid())
+  sessionToken String @unique
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("sessions")
+}
+
+model Account {
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  type              String
+  providerType      String
+  provider          String
+  providerAccountId String
+  scope             String?
+  accessToken       String
+  expiresAt         DateTime
+  idToken           String?
+  refreshToken      String?
+  sessionState      String?
+  tokenType         String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("accounts")
+}
+
+model Enrolled {
+  id             String   @id @default(uuid())
+  name           String
+  email          String
+  document       String
+  phone          String
+  birthDate      DateTime
+  city           String
+  state          String
+  occupationArea String
+  institute      String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("enrolleds")
+}
