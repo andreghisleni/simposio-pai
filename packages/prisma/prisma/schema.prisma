@@ -89,5 +89,40 @@ model Enrolled {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  works              Work[]
+  astrophotographies Astrophotography[]
+
   @@map("enrolleds")
+}
+
+model Work {
+  id                  String   @id @default(uuid())
+  title               String
+  presentersName      String
+  presentersInstitute String
+  authorsNames        String[]
+  abstract            String
+
+  enrolledId String
+  enrolled   Enrolled @relation(fields: [enrolledId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("works")
+}
+
+model Astrophotography {
+  id                 String @id @default(uuid())
+  title              String
+  photo              String
+  photoWithWatermark String
+
+  enrolledId String
+  enrolled   Enrolled @relation(fields: [enrolledId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("astrophotographies")
 }

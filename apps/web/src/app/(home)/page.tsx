@@ -42,7 +42,7 @@ export default function Homepage() {
   return (
     <div>
       <Section variant="callaction">
-        <Container className="flex flex-col items-center gap-8">
+        <Container className="flex flex-col items-center gap-8 text-center">
           <h1 className="text-4xl font-bold">
             XI Simpósio Catarinense de Astronomia
           </h1>

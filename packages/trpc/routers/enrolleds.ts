@@ -15,6 +15,10 @@ export const enrolledsRouter = createTRPCRouter({
         where: {
           id,
         },
+        include: {
+          works: true,
+          astrophotographies: true,
+        },
       })
 
       if (!enrolled) {
@@ -65,6 +69,7 @@ export const enrolledsRouter = createTRPCRouter({
         state,
         occupationArea,
         institute,
+        interestedInStayingInAccommodation,
       } = input
 
       const existingEnrolled = await prisma.enrolled.findFirst({
@@ -101,6 +106,7 @@ export const enrolledsRouter = createTRPCRouter({
           state,
           occupationArea,
           institute,
+          interestedInStayingInAccommodation,
         },
       })
 
@@ -126,6 +132,7 @@ export const enrolledsRouter = createTRPCRouter({
         state,
         occupationArea,
         institute,
+        interestedInStayingInAccommodation,
       } = input
 
       const enrolled = await prisma.enrolled.findUnique({
@@ -155,6 +162,7 @@ export const enrolledsRouter = createTRPCRouter({
           state,
           occupationArea,
           institute,
+          interestedInStayingInAccommodation,
         },
       })
 
