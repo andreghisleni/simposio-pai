@@ -6,7 +6,7 @@ import { z } from 'zod'
 import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 export const enrolledsRouter = createTRPCRouter({
-  getEnrolled: protectedProcedure
+  getEnrolled: publicProcedure
     .input(z.object({ id: z.string().uuid() }))
     .query(async ({ input }) => {
       const { id } = input
@@ -52,7 +52,7 @@ export const enrolledsRouter = createTRPCRouter({
       return { enrolleds }
     }),
 
-  createEnrolleds: publicProcedure
+  createEnrolled: publicProcedure
     .input(enrolledSchema)
     .mutation(async ({ input }) => {
       const {

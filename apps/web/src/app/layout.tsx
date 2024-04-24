@@ -13,10 +13,11 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | G.Clinic',
-    absolute: 'G.Clinic',
+    template: '%s | XI Simpósio Catarinense de Astronomia',
+    absolute: 'XI Simpósio Catarinense de Astronomia',
   },
-  description: 'The all-in-one clinic solution.',
+  description:
+    'O 11º Simpósio Catarinense de Astronomia, em Chapecó nos dias 19 e 20 de julho de 2024, reúne astrônomos amadores e profissionais, professores, estudantes e entusiastas para compartilhar pesquisas, observações e práticas de ensino, incluindo palestras, exposição de astrofotografias e oportunidades de certificação.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

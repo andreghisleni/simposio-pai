@@ -1,7 +1,7 @@
 'use client'
 
-import { clientSchema } from '@simposio-pai/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { clientSchema } from '@simposio-pai/schema'
 import { Loader2 } from 'lucide-react'
 import { useEffect } from 'react'
 import { useForm, UseFormReturn } from 'react-hook-form'

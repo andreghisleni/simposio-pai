@@ -5,7 +5,7 @@ export const enrolledFields = {
   email: z.string().email(),
   document: z
     .string()
-    .min(14)
+    .min(10)
     .transform((v) => v.replace(/\D/g, '')),
   phone: z
     .string()
