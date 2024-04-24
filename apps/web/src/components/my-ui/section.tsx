@@ -8,7 +8,7 @@ const sectionVariants = tv({
   variants: {
     variant: {
       default: 'bg-transparent',
-      callaction: 'bg-zinc-100',
+      callaction: 'bg-zinc-100 dark:bg-zinc-800',
     },
   },
   defaultVariants: {

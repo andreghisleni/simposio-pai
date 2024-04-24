@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { serverClient } from '@/lib/trpc/server'
 
 export const metadata: Metadata = {
-  title: 'Inscrição realizada com sucesso!',
+  title: 'Submeter Trabalho',
 }
 
 export default async function SubscribeSuccess({

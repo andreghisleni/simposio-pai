@@ -84,6 +84,8 @@ model Enrolled {
   occupationArea String
   institute      String
 
+  interestedInStayingInAccommodation Boolean @default(false)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

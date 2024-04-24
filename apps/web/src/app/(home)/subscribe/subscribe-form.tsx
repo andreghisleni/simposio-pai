@@ -20,6 +20,13 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
 import { trpc } from '@/lib/trpc/react'
 import { inputCpfMask, inputPhoneMask } from '@/utils/inputMasks'
@@ -40,6 +47,7 @@ export function SubscribeForm() {
       state: '',
       occupationArea: '',
       institute: '',
+      interestedInStayingInAccommodation: false,
     },
   })
 
@@ -51,7 +59,7 @@ export function SubscribeForm() {
         title: 'Inscrição realizada com sucesso',
       })
 
-      router.push(`/subscribe/success?enrolledId=${enrolled.id}`)
+      router.push(`/subscribe/${enrolled.id}/success`)
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError: (error: any) => {
@@ -167,6 +175,37 @@ export function SubscribeForm() {
                   </FormItem>
                 )}
               />
+
+              <FormField
+                control={form.control}
+                name="interestedInStayingInAccommodation"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Teria interesse de hospedar-se em alojamento?{' '}
+                      <span>Caso seja oferecido</span>
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value ? 'true' : 'false'}
+                      disabled={field.disabled}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecione se é um cliente antigo" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="true">Sim</SelectItem>
+                        <SelectItem value="false">Não</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </Row>
+            <Row>
               <FormField
                 control={form.control}
                 name="city"
