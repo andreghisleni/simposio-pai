@@ -1,4 +1,5 @@
 import {
+  deleteFile,
   // GetObjectCommand,
   getSignedUrl,
   PutObjectCommand,
@@ -8,7 +9,7 @@ import { env } from '@simposio-pai/env'
 import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 
-import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { createTRPCRouter, publicProcedure } from '../trpc'
 
 const FILE_EXTENSIONS = [
   {
@@ -26,7 +27,7 @@ const FILE_EXTENSIONS = [
 ]
 
 export const storageRouter = createTRPCRouter({
-  requestUploadUrl: protectedProcedure
+  requestUploadUrl: publicProcedure
     .input(
       z.object({
         type: z.enum(['application/pdf', 'image/png', 'image/jpeg']),
@@ -49,12 +50,30 @@ export const storageRouter = createTRPCRouter({
         new PutObjectCommand({
           Bucket: env.CLOUDFLARE_UPLOAD_BUCKET_NAME,
           Key: `${file_name}`,
-          ContentType: 'video/mp4',
+          // ContentType: 'video/mp4',
         }),
         { expiresIn: 600 },
       )
 
       return { url: signedUrl, file_name }
+    }),
+
+  deleteFile: publicProcedure
+    .input(
+      z.object({
+        files: z.array(z.string()),
+      }),
+    )
+    .query(async ({ input }) => {
+      const { files } = input
+
+      // for (const file of files) {
+      //   await deleteFile(file)
+      // }
+
+      await Promise.all(files.map(deleteFile))
+
+      return { success: true }
     }),
 
   // requestMediaDownloadUrl: protectedProcedure

@@ -1,5 +1,7 @@
+import { env } from '@simposio-pai/env'
 import { prisma } from '@simposio-pai/prisma'
 import { workFields, workSchemaWithEnrolledId } from '@simposio-pai/schema'
+import { new_work, new_work_owner, ses } from '@simposio-pai/ses'
 import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 
@@ -78,6 +80,19 @@ export const worksRouter = createTRPCRouter({
         })
       }
 
+      const enrolled = await prisma.enrolled.findUnique({
+        where: {
+          id: enrolledId,
+        },
+      })
+
+      if (!enrolled) {
+        throw new TRPCError({
+          message: 'Enrolled not found.',
+          code: 'BAD_REQUEST',
+        })
+      }
+
       const work = await prisma.work.create({
         data: {
           title,
@@ -86,6 +101,52 @@ export const worksRouter = createTRPCRouter({
           presentersInstitute,
           authorsNames,
           abstract,
+        },
+      })
+
+      await ses.sendMail({
+        to: {
+          name: 'Daniel',
+          email:
+            env.NODE_ENV === 'production'
+              ? 'espacoastronomia@gmail.com'
+              : 'rs@andreg.com.br',
+        },
+        subject: `[${env.APP_NAME}] Confirmação de submissão de trabalho`,
+        templateData: {
+          html: new_work_owner,
+          variables: {
+            name: enrolled.name,
+            email: enrolled.email,
+            document: enrolled.document,
+            phone: enrolled.phone,
+            birthDate: new Date(enrolled.birthDate).toLocaleDateString('pt-BR'),
+            city: enrolled.city,
+            state: enrolled.state,
+            occupationArea: enrolled.occupationArea,
+            institute: enrolled.institute,
+
+            title,
+            abstract,
+            presenterName: presentersName,
+            presenterInstitute: presentersInstitute,
+            authors: authorsNames.join(', '),
+          },
+        },
+      })
+
+      await ses.sendMail({
+        to: {
+          name: enrolled.name,
+          email: enrolled.email,
+        },
+        subject: `[${env.APP_NAME}] Confirmação de submissão de trabalho`,
+        templateData: {
+          html: new_work,
+          variables: {
+            name: enrolled.name,
+            title,
+          },
         },
       })
 

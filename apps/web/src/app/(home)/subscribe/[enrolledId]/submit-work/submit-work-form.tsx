@@ -41,7 +41,7 @@ export function SubmitWorkForm({
       title: '',
       presentersName: name,
       presentersInstitute: institute,
-      authorsNames: [],
+      authorsNames: ['Autor 1'],
       abstract: '',
     },
   })
@@ -110,7 +110,7 @@ export function SubmitWorkForm({
               />
             </Row>
 
-            <Row>
+            <Row className="items-center">
               <Button
                 type="button"
                 onClick={() => append(`Autor ${fields.length + 1}`)}
@@ -133,15 +133,21 @@ export function SubmitWorkForm({
                     <FormItem>
                       <FormLabel>Autor {index + 1}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Autor" {...field} />
+                        <div className="flex gap-4">
+                          <Input placeholder="Autor" {...field} />
+                          <Button
+                            type="button"
+                            onClick={() => remove(index)}
+                            disabled={fields.length === 1}
+                          >
+                            Remover
+                          </Button>
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button type="button" onClick={() => remove(index)}>
-                  Remover
-                </Button>
               </Row>
             ))}
 

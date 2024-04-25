@@ -1,5 +1,7 @@
+import { env } from '@simposio-pai/env'
 import { prisma } from '@simposio-pai/prisma'
 import { enrolledFields, enrolledSchema } from '@simposio-pai/schema'
+import { new_enrolled, new_enrolled_owner, ses } from '@simposio-pai/ses'
 import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 
@@ -107,6 +109,48 @@ export const enrolledsRouter = createTRPCRouter({
           occupationArea,
           institute,
           interestedInStayingInAccommodation,
+        },
+      })
+
+      await ses.sendMail({
+        to: {
+          name: 'Daniel',
+          email:
+            env.NODE_ENV === 'production'
+              ? 'espacoastronomia@gmail.com'
+              : 'rs@andreg.com.br',
+        },
+        subject: `[${env.APP_NAME}] Confirmação de inscrição`,
+        templateData: {
+          html: new_enrolled_owner,
+          variables: {
+            name,
+            email,
+            document,
+            phone,
+            birthDate: new Date(birthDate).toLocaleDateString('pt-BR'),
+            city,
+            state,
+            occupationArea,
+            institute,
+            interestedInStayingInAccommodation:
+              interestedInStayingInAccommodation ? 'Sim' : 'Não',
+          },
+        },
+      })
+
+      await ses.sendMail({
+        to: {
+          name,
+          email,
+        },
+        subject: `[${env.APP_NAME}] Confirmação de inscrição`,
+        templateData: {
+          html: new_enrolled,
+          variables: {
+            name,
+            link: `${env.NEXT_PUBLIC_VERCEL_URL}/subscribe/${enrolled.id}`,
+          },
         },
       })
 

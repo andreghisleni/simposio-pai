@@ -21,7 +21,7 @@ export default async function EnrolledLayout({
   })
   return (
     <div>
-      <Container className="flex justify-center text-center">
+      <Container className="justify-center text-center md:flex ">
         <NavLink
           className="flex items-center border-b-2 border-transparent px-3 py-1.5 text-sm font-medium uppercase text-muted-foreground transition-colors"
           href={`/subscribe/${enrolledId}`}

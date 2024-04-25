@@ -12,6 +12,10 @@ export const env = createEnv({
     CLOUDFLARE_SECRET_KEY: z.string().min(1),
     CLOUDFLARE_UPLOAD_BUCKET_NAME: z.string().min(1),
     AUTH_SECRET: z.string().min(1),
+    AWS_ACCESS_KEY_ID: z.string().min(1),
+    AWS_SECRET_ACCESS_KEY: z.string().min(1),
+    EMAIL: z.string().email().min(1),
+    APP_NAME: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_VERCEL_URL: z.string().url().min(1),
@@ -31,6 +35,10 @@ export const env = createEnv({
     CLOUDFLARE_SECRET_KEY: process.env.CLOUDFLARE_SECRET_KEY,
     CLOUDFLARE_UPLOAD_BUCKET_NAME: process.env.CLOUDFLARE_UPLOAD_BUCKET_NAME,
     AUTH_SECRET: process.env.AUTH_SECRET,
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    EMAIL: process.env.EMAIL,
+    APP_NAME: process.env.APP_NAME,
   },
   emptyStringAsUndefined: true,
 })

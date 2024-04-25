@@ -1,5 +1,6 @@
 import { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 
+import { astrophotographiesRouter } from './routers/astrophotographies'
 import { enrolledsRouter } from './routers/enrolleds'
 import { storageRouter } from './routers/storage'
 import { usersRouter } from './routers/users'
@@ -11,6 +12,7 @@ export const appRouter = mergeRouters(
   storageRouter,
   enrolledsRouter,
   worksRouter,
+  astrophotographiesRouter,
 )
 
 export { createCallerFactory }

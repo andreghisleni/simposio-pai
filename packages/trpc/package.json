@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@simposio-pai/auth": "workspace:*",
+    "@simposio-pai/ses": "workspace:*",
     "@simposio-pai/cloudflare": "workspace:*",
     "@simposio-pai/env": "workspace:*",
     "@simposio-pai/dayjs": "workspace:*",
