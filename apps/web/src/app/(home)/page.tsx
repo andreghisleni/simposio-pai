@@ -43,7 +43,7 @@ export default function Homepage() {
     <div>
       <Section variant="callaction">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-4xl font-bold text-primary">
             XI Simpósio Catarinense de Astronomia
           </h1>
           <Button asChild className="bg-primary hover:bg-primary/75" size="lg">
