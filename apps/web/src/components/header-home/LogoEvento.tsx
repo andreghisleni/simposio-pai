@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 
-const LogoLight = '@/assets/logo-light.jpeg'
-const LogoDark = '@/assets/logo-dark.jpeg'
+import LogoDark from '@/assets/logo-dark.png'
+import LogoLight from '@/assets/logo-light.png'
 
 export function LogoEvento() {
   const { theme } = useTheme()
@@ -14,16 +14,8 @@ export function LogoEvento() {
   console.log(Logo)
 
   return (
-    <div className="h-12">
-      {/* <Image
-        src={Logo}
-        alt="Logo"
-        // width={85.33}
-        // height={48}
-        placeholder="blur"
-        fill={true}
-        layout="responsive"
-      /> */}
+    <div className="w-96">
+      <Image src={Logo} alt="Logo" placeholder="blur" layout="responsive" />
     </div>
   )
 }

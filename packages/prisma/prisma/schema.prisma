@@ -113,10 +113,12 @@ model Work {
 }
 
 model Astrophotography {
-  id                 String @id @default(uuid())
-  title              String
-  photo              String
-  photoWithWatermark String
+  id            String   @id @default(uuid())
+  title         String
+  photo         String
+  date          DateTime
+  equipment     String
+  image_details String
 
   enrolledId String
   enrolled   Enrolled @relation(fields: [enrolledId], references: [id])

@@ -20,6 +20,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/components/ui/use-toast'
 import { trpc } from '@/lib/trpc/react'
 
@@ -41,7 +42,7 @@ export function SubmitWorkForm({
       title: '',
       presentersName: name,
       presentersInstitute: institute,
-      authorsNames: ['Autor 1'],
+      authorsNames: [name],
       abstract: '',
     },
   })
@@ -100,9 +101,42 @@ export function SubmitWorkForm({
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Titulo do trabalho</FormLabel>
+                    <FormLabel>Título do trabalho</FormLabel>
                     <FormControl>
-                      <Input placeholder="Titulo do trabalho" {...field} />
+                      <Input placeholder="Título do trabalho" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </Row>
+
+            <Row>
+              <FormField
+                control={form.control}
+                name="presentersName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nome do apresentador</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Nome do apresentador" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="presentersInstitute"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Instituição do apresentador</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Instituição do apresentador"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -115,7 +149,7 @@ export function SubmitWorkForm({
                 type="button"
                 onClick={() => append(`Autor ${fields.length + 1}`)}
               >
-                Adicionar autor
+                Adicionar autores
               </Button>
               {form.formState.errors.authorsNames && (
                 <FormMessage>
@@ -161,39 +195,8 @@ export function SubmitWorkForm({
                       Resumo do trabalho (máximo 1000 caracteres)
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Resumo" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </Row>
-            <Row>
-              <FormField
-                control={form.control}
-                name="presentersName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nome do apresentador</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Nome do apresentador" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="presentersInstitute"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Instituição do apresentador</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Instituição do apresentador"
-                        {...field}
-                      />
+                      {/* <Input placeholder="Resumo" {...field} /> */}
+                      <Textarea {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

@@ -23,8 +23,24 @@ export type Astrophotography =
 export const columns: ColumnDef<Astrophotography>[] = [
   {
     accessorKey: 'title',
-    header: tableDataButton('Titulo'),
+    header: tableDataButton('Título'),
   },
+  {
+    accessorKey: 'date',
+    header: 'Data',
+    cell: ({ row }) => {
+      return <span>{format(new Date(row.getValue('date')), 'dd/MM/yyyy')}</span>
+    },
+  },
+  {
+    accessorKey: 'equipment',
+    header: 'Equipamento',
+  },
+  {
+    accessorKey: 'image_details',
+    header: 'Detalhes da imagem',
+  },
+
   {
     id: 'photo',
     enableHiding: false,
@@ -46,7 +62,7 @@ export const columns: ColumnDef<Astrophotography>[] = [
           </DialogTrigger>
           <DialogContent className="sm:max-w-[800px]">
             <DialogHeader>
-              <DialogTitle>Arquivo: {title} sem marca d`água</DialogTitle>
+              <DialogTitle>Arquivo: {title} sem identificação</DialogTitle>
             </DialogHeader>
             <div className="h-[600px]">
               <FileViewer
@@ -60,41 +76,7 @@ export const columns: ColumnDef<Astrophotography>[] = [
       )
     },
   },
-  {
-    id: 'photoWithWatermark',
-    enableHiding: false,
 
-    cell: ({ row }) => {
-      const { id, title, photoWithWatermark } = row.original
-
-      if (!photoWithWatermark)
-        return (
-          <Button variant="outline" disabled>
-            Não há arquivo
-          </Button>
-        )
-
-      return (
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button>Arquivo</Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[800px]">
-            <DialogHeader>
-              <DialogTitle>Arquivo: {title} com marca d`água</DialogTitle>
-            </DialogHeader>
-            <div className="h-[600px]">
-              <FileViewer
-                url={`/astrophotographies/download/${id}/photoWithWatermark`}
-                file_name={photoWithWatermark}
-                name={title}
-              />
-            </div>
-          </DialogContent>
-        </Dialog>
-      )
-    },
-  },
   {
     accessorKey: 'createdAt',
     header: 'Criado em',

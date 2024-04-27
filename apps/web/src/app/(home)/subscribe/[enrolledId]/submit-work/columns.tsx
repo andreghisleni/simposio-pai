@@ -21,7 +21,7 @@ export type Work = RouterOutput['getEnrolled']['enrolled']['works'][0]
 export const columns: ColumnDef<Work>[] = [
   {
     accessorKey: 'title',
-    header: tableDataButton('Titulo'),
+    header: tableDataButton('Título'),
   },
   {
     accessorKey: 'presentersName',

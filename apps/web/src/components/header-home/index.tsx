@@ -9,10 +9,9 @@ export function HeaderHome() {
     <div className="border-b">
       <Container>
         <div className="mt-8 flex flex-col items-center gap-4 px-8">
-          <LogoEvento />
-          <h1 className="text-center text-2xl font-bold md:text-3xl lg:text-4xl">
-            XI Simpósio Catarinense de Astronomia
-          </h1>
+          <div>
+            <LogoEvento />
+          </div>
           <div className="flex flex-col items-center space-x-4 md:flex-row">
             <nav className="flex flex-col items-center space-x-2 md:flex-row lg:space-x-3">
               <MenuLink href="/">home</MenuLink>

@@ -15,7 +15,7 @@ export const astrophotographiesRouter = createTRPCRouter({
   createAstrophotography: publicProcedure
     .input(astrophotographySchemaWithEnrolledId)
     .mutation(async ({ input }) => {
-      const { title, enrolledId, photo, photoWithWatermark } = input
+      const { title, enrolledId, photo, date, equipment, image_details } = input
 
       const existingAstrophotography = await prisma.astrophotography.findFirst({
         where: {
@@ -49,17 +49,15 @@ export const astrophotographiesRouter = createTRPCRouter({
           title,
           enrolledId,
           photo,
-          photoWithWatermark,
+          date,
+          equipment,
+          image_details,
         },
       })
 
       await moveFile(
         `${env.NODE_ENV}/${photo}`,
         `astrophotographies/${astrophotography.id}/${photo}`,
-      )
-      await moveFile(
-        `${env.NODE_ENV}/${photoWithWatermark}`,
-        `astrophotographies/${astrophotography.id}/${photoWithWatermark}`,
       )
 
       await ses.sendMail({
@@ -86,7 +84,9 @@ export const astrophotographiesRouter = createTRPCRouter({
 
             title,
             link_photo: `${env.NEXT_PUBLIC_VERCEL_URL}/api/astrophotographies/download/${astrophotography.id}/photo`,
-            link_photoWithWatermark: `${env.NEXT_PUBLIC_VERCEL_URL}/api/astrophotographies/download/${astrophotography.id}/photoWithWatermark`,
+            date: new Date(date).toLocaleDateString('pt-BR'),
+            equipment,
+            image_details,
           },
         },
       })

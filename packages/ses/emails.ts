@@ -73,8 +73,10 @@ export const new_astrophotography_owner = email_base(`
 
   <p>Informações da astrofotografia:</p>
   <p><strong>Título</strong>: {{=it.title}}</p>
+  <p><strong>Data</strong>: {{=it.date}}</p>
+  <p><strong>Equipamento</strong>: {{=it.equipment}}</p>
+  <p><strong>Detalhes da imagem</strong>: {{=it.image_details}}</p>
   <p><strong>Foto sem marca d'água</strong>: <a href="{{=it.link_photo}}" target="_blank" rel="noopener noreferrer">Foto</a></p>
-  <p><strong>Foto com marca d'água</strong>: <a href="{{=it.link_photoWithWatermark}}" target="_blank" rel="noopener noreferrer">Foto</a></p>
 `)
 
 export const new_astrophotography = email_base(`

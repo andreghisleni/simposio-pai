@@ -5,7 +5,7 @@ import { astrophotographySchema } from '@simposio-pai/schema'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 
@@ -40,7 +40,6 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
   })
 
   const [fileName0, setFileName0] = useState<string | undefined>(undefined)
-  const [fileName1, setFileName1] = useState<string | undefined>(undefined)
 
   const files = [
     useUploadFile({
@@ -58,27 +57,6 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
         })
 
         setFileName0(response.file_name)
-
-        return {
-          file_name: response.file_name,
-        }
-      },
-    }),
-    useUploadFile({
-      handleUploadFunction: async (file: File) => {
-        const response = await nativeClient.requestUploadUrl.query({
-          type: file.type as 'application/pdf' | 'image/png' | 'image/jpeg',
-        })
-
-        const uploadURL = response.url
-
-        await axios.put(uploadURL, file, {
-          headers: {
-            'Content-Type': file.type,
-          },
-        })
-
-        setFileName1(response.file_name)
 
         return {
           file_name: response.file_name,
@@ -111,7 +89,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
 
   async function onSubmit(values: z.infer<typeof astrophotographySchema>) {
     try {
-      if (!fileName0 || !fileName1) {
+      if (!fileName0) {
         toast({
           title: 'Erro ao realizar inscrição',
           description: 'Envie as astrofotografias',
@@ -124,45 +102,44 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
         ...values,
         enrolledId,
         photo: fileName0,
-        photoWithWatermark: fileName1,
       })
 
       console.log('values', values)
     } catch (error) {}
   }
 
-  useEffect(() => {
-    return () => {
-      if (fileName0) {
-        console.log(fileName0)
-      }
-      if (fileName1) {
-        console.log(fileName1)
-      }
+  // useEffect(() => {
+  //   return () => {
+  //     if (fileName0) {
+  //       console.log(fileName0)
+  //     }
+  //     if (fileName1) {
+  //       console.log(fileName1)
+  //     }
 
-      if (fileName0 && fileName1) {
-        console.log('apagar todas')
-        nativeClient.deleteFile.query({
-          files: [fileName0, fileName1],
-        })
-      }
-      console.log('apagar')
-    }
-  }, [fileName0, fileName1])
+  //     if (fileName0 && fileName1) {
+  //       console.log('apagar todas')
+  //       nativeClient.deleteFile.query({
+  //         files: [fileName0, fileName1],
+  //       })
+  //     }
+  //     console.log('apagar')
+  //   }
+  // }, [fileName0, fileName1])
 
   return (
     <Section variant="callaction">
       <Container className="space-y-8">
         <div className="flex w-full justify-center p-8">
           <div className="flex flex-col gap-4">
-            <h1 className="text-3xl font-bold text-primary">
+            <h1 className="text-center text-3xl font-bold text-primary">
               Submeta sua astrofotografia
             </h1>
-            <div className="flex flex-col gap-2">
-              <p className="text-lg">
-                Envie sua astrofotografia em formato PNG ou JPEG sem a marca
-                d`água.
-              </p>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-lg">
+                Envie sua astrofotografia em formato PNG ou JPEG sem
+                identificação.
+              </span>
               <FileUpload
                 file={files[0]}
                 buttonTexts={
@@ -171,24 +148,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                       ? 'Enviando...'
                       : fileUploadedName
                 ? 'Astrofotografia enviado' // eslint-disable-line
-                : 'Enviar astrofotografia sem a marca d`água'/*eslint-disable-line*/
-                }
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="text-lg">
-                Envie sua astrofotografia em formato PNG ou JPEG com a marca
-                d`água.
-              </p>
-              <FileUpload
-                file={files[1]}
-                buttonTexts={
-                  ({ isFileUploading, fileUploadedName }) =>
-                    isFileUploading
-                      ? 'Enviando...'
-                      : fileUploadedName
-                ? 'Astrofotografia enviado' // eslint-disable-line
-                : 'Enviar astrofotografia com a marca d`água'/*eslint-disable-line*/
+                : 'Enviar astrofotografia sem identificação'/*eslint-disable-line*/
                 }
               />
             </div>
@@ -204,9 +164,76 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                     name="title"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Titulo do trabalho</FormLabel>
+                        <FormLabel>
+                          Nome do objeto / Título da astrofotografia
+                        </FormLabel>
                         <FormControl>
-                          <Input placeholder="Titulo do trabalho" {...field} />
+                          <Input
+                            placeholder=" Nome do objeto / Título da astrofotografia"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </Row>
+
+                <Row>
+                  <FormField
+                    control={form.control}
+                    name="date"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Data</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="date"
+                            {...field}
+                            value={field.value?.toString()}
+                            className="block w-full"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </Row>
+
+                <Row>
+                  <FormField
+                    control={form.control}
+                    name="equipment"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>
+                          Equipamento utilizado (tipo e/ou modelo do telescópio,
+                          câmera, celular, etc...)
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Equipamento utilizado"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </Row>
+
+                <Row>
+                  <FormField
+                    control={form.control}
+                    name="image_details"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>
+                          Detalhes da imagem (tempo de exposição, ISO, abertura,
+                          número de frames, etc...)
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder="Detalhes da imagem" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -218,9 +245,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                   <Button
                     type="submit"
                     className="bg-primary hover:bg-primary/75"
-                    disabled={
-                      form.formState.isSubmitting || !fileName0 || !fileName1
-                    }
+                    disabled={form.formState.isSubmitting || !fileName0}
                   >
                     {form.formState.isSubmitting ? (
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />

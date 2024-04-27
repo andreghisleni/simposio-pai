@@ -55,7 +55,7 @@ export default async function SubscribeSuccess({
               asChild
             >
               <Link href={`/subscribe/${enrolledId}/submit-astrophoto`}>
-                Submeter Astro-fotografia
+                Submeter Astrofotografia
               </Link>
             </Button>
           </div>

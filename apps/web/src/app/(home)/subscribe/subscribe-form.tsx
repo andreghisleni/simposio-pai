@@ -182,8 +182,8 @@ export function SubscribeForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Teria interesse de hospedar-se em alojamento?{' '}
-                      <span>Caso seja oferecido</span>
+                      Teria interesse de hospedar-se em alojamento, caso seja
+                      oferecido?
                     </FormLabel>
                     <Select
                       onValueChange={field.onChange}
