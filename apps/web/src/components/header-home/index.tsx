@@ -1,5 +1,6 @@
 import { Container } from '../my-ui/container'
 import { Separator } from '../ui/separator'
+import { LogoEvento } from './LogoEvento'
 import { MenuLink } from './menu-link'
 import { ThemeSwitcher } from './theme-switcher'
 
@@ -8,6 +9,7 @@ export function HeaderHome() {
     <div className="border-b">
       <Container>
         <div className="mt-8 flex flex-col items-center gap-4 px-8">
+          <LogoEvento />
           <h1 className="text-center text-2xl font-bold md:text-3xl lg:text-4xl">
             XI Simpósio Catarinense de Astronomia
           </h1>
