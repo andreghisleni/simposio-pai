@@ -37,7 +37,7 @@ export default async function SubscribeSuccess({
             enrolled.astrophotographies.length === 0 && (
               <h2 className="text-xl">
                 Nenhum trabalho ou astrofotografia foram submetidos. Caso queira
-                submeter, clique nos botões abaixo.
+                submeter, clique abaixo.
               </h2>
             )}
 
