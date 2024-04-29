@@ -16,7 +16,10 @@ export function HeaderHome() {
             <nav className="flex flex-col items-center space-x-2 md:flex-row lg:space-x-3">
               <MenuLink href="/">home</MenuLink>
               <MenuLink href="/presentation">Apresentação</MenuLink>
-              <MenuLink href="/schedule">Programação</MenuLink>
+              <MenuLink href="/preliminary-schedule">
+                Programação Preliminar
+              </MenuLink>
+              {/* <MenuLink href="/schedule">Programação</MenuLink> */}
               <MenuLink href="/contact">Contato</MenuLink>
             </nav>
 

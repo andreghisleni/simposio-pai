@@ -4,7 +4,7 @@ import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
 
 export const metadata: Metadata = {
-  title: 'Subscribe',
+  title: 'Programação',
 }
 
 export default function PresentationPage() {

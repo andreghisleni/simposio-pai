@@ -10,6 +10,7 @@
     "enrolleds",
     "gl",
     "hookform",
+    "IFSC",
     "immer",
     "Immer",
     "inngest",
@@ -25,6 +26,7 @@
     "superjson",
     "tanstack",
     "trpc",
+    "UDESC",
     "upstash",
     "webvtt"
   ]

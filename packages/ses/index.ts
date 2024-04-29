@@ -28,7 +28,7 @@ const sendMail = async ({
   subject,
   templateData,
 }: ISendMailDTO): Promise<void> => {
-  const name = 'Simposio PAI'
+  const name = env.APP_NAME ?? 'Simposio PAI'
   const email = env.EMAIL ?? 'envio@andreg.com.br'
 
   const parsedHTML = await template.parse(templateData)

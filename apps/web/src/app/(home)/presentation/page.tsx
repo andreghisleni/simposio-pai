@@ -4,7 +4,7 @@ import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
 
 export const metadata: Metadata = {
-  title: 'Subscribe',
+  title: 'Apresentação',
 }
 
 export default function PresentationPage() {
@@ -15,9 +15,10 @@ export default function PresentationPage() {
         <p>
           A Associação Apontador de Estrelas, em parceria com a Universidade do
           Estado de Santa Catarina - UDESC Oeste, o Instituto Federal de Santa
-          Catarina - IFSC, campi Chapecó e Xanxerê, e a Universidade Federal da
-          Fronteira Sul – UFFS campus Chapecó realizarão, nos dias 19 e 20 de
-          julho de 2024, o 11º Simpósio Catarinense de Astronomia, em Chapecó.
+          Catarina - IFSC, campi Chapecó e Xanxerê, a Universidade Federal da
+          Fronteira Sul – UFFS, campus Chapecó, e EEB Bom Pastor realizarão, nos
+          dias 19 e 20 de julho de 2024, o 11º Simpósio Catarinense de
+          Astronomia, em Chapecó.
         </p>
 
         <p>
