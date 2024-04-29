@@ -12,10 +12,6 @@ const schedule = [
   {
     title: 'Dia 19 de julho de 2024',
     times: [
-      {
-        time: '08h00',
-        text: 'Credenciamento Et fugiat ex consequat dolore labore veniam Lorem sint aliqua id. Fugiat pariatur aute non reprehenderit duis excepteur. Est in reprehenderit labore irure pariatur veniam id Lorem minim velit anim laborum ex. Culpa duis duis aliqua pariatur sunt labore anim aliquip ipsum pariatur laborum.',
-      },
       { time: '08h00', text: 'Credenciamento' },
       { time: '08h30', text: 'Abertura' },
       { time: '09h00', text: 'Palestra 1' },
@@ -59,6 +55,9 @@ export default function PresentationPage() {
         <h1 className="text-4xl font-bold text-primary">
           Programação Preliminar
         </h1>
+        <h2 className="text-2xl">
+          Local: EEB Bom Pastor - R. Florianópolis, 314 E - Centro, Chapecó
+        </h2>
 
         {schedule.map((day) => (
           <>
