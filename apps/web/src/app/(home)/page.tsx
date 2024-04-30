@@ -1,18 +1,30 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Apoiador1 from '@/assets/apoiadores/Apoiadores1.jpeg'
-import Apoiador2 from '@/assets/apoiadores/Apoiadores2.jpeg'
-import Apoiador3_1 from '@/assets/apoiadores/Apoiadores3.1.jpeg'
-import Apoiador4 from '@/assets/apoiadores/Apoiadores4.jpeg'
-import Apoiador5 from '@/assets/apoiadores/Apoiadores5.jpeg'
-import Apoiador6 from '@/assets/apoiadores/Apoiadores6.jpeg'
-import Apoiador7 from '@/assets/apoiadores/Apoiadores7.jpeg'
-import Apoiador8 from '@/assets/apoiadores/Apoiadores8.jpeg'
-import Apoiador9 from '@/assets/apoiadores/Apoiadores9.png'
+// import Apoiador1 from '@/assets/apoiadores/Apoiadores1.jpeg'
+// import Apoiador2 from '@/assets/apoiadores/Apoiadores2.jpeg'
+// import Apoiador3_1 from '@/assets/apoiadores/Apoiadores3.1.jpeg'
+// import Apoiador4 from '@/assets/apoiadores/Apoiadores4.jpeg'
+// import Apoiador5 from '@/assets/apoiadores/Apoiadores5.jpeg'
+// import Apoiador6 from '@/assets/apoiadores/Apoiadores6.jpeg'
+// import Apoiador7 from '@/assets/apoiadores/Apoiadores7.jpeg'
+// import Apoiador8 from '@/assets/apoiadores/Apoiadores8.jpeg'
+// import Apoiador9 from '@/assets/apoiadores/Apoiadores9.png'
+import Apoiador1 from '@/assets/apoiadores/new/Apoiadores1.png'
+import Apoiador2 from '@/assets/apoiadores/new/Apoiadores2.png'
+import Apoiador3 from '@/assets/apoiadores/new/Apoiadores3.png'
+import Apoiador4 from '@/assets/apoiadores/new/Apoiadores4.png'
+import Apoiador5 from '@/assets/apoiadores/new/Apoiadores5.png'
+import Apoiador6 from '@/assets/apoiadores/new/Apoiadores6.png'
+import Apoiador7 from '@/assets/apoiadores/new/Apoiadores7.png'
+import Apoiador8 from '@/assets/apoiadores/new/Apoiadores8.png'
+import Apoiador9 from '@/assets/apoiadores/new/Apoiadores9.png'
+//
+import A from '@/assets/Logos-Organizadores-SIte.png'
 import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
 import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 const apoiadores = [
   [
@@ -34,7 +46,8 @@ const apoiadores = [
     },
     {
       nome: 'UFFS Campus Chapecó',
-      logo: Apoiador3_1,
+      logo: Apoiador3,
+      // w: 470,
     },
     {
       nome: 'EEB Bom Pastor',
@@ -58,17 +71,6 @@ const apoiadores = [
 ]
 
 export default function Homepage() {
-  console.log(
-    Apoiador1,
-    Apoiador2,
-    Apoiador3_1,
-    Apoiador4,
-    Apoiador5,
-    Apoiador6,
-    Apoiador7,
-    Apoiador8,
-    Apoiador9,
-  )
   return (
     <div>
       <Section variant="callaction">
@@ -86,9 +88,9 @@ export default function Homepage() {
           <div className="flex justify-center">
             <h1 className="text-2xl">Organizadores</h1>
           </div>
-          <ul className="grid grid-flow-row grid-cols-4 gap-x-4 gap-y-4">
+          <ul className="flex flex-wrap justify-center gap-8">
             {apoiadores[0].map((apoiador) => (
-              <li key={apoiador.nome} className="mb-20">
+              <li key={apoiador.nome} className="bg-white p-4">
                 <Image
                   src={apoiador.logo}
                   placeholder="blur"
@@ -100,9 +102,11 @@ export default function Homepage() {
               </li>
             ))}
           </ul>
-          <ul className="grid grid-flow-row grid-cols-4 gap-x-4 gap-y-4">
+          <Separator className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-200 dark:from-zinc-800 dark:via-zinc-400 dark:to-zinc-800" />
+
+          <ul className="flex flex-wrap justify-center gap-8 ">
             {apoiadores[1].map((apoiador) => (
-              <li key={apoiador.nome} className="mb-20">
+              <li key={apoiador.nome} className="bg-white p-4">
                 <Image
                   src={apoiador.logo}
                   placeholder="blur"
@@ -114,6 +118,20 @@ export default function Homepage() {
               </li>
             ))}
           </ul>
+
+          <Separator className="bg-gradient-to-r from-zinc-200 via-zinc-500 to-zinc-200 dark:from-zinc-800 dark:via-zinc-400 dark:to-zinc-800" />
+
+          <h1 className="text-xl">Imagem fixa:</h1>
+
+          <div className="flex justify-center">
+            <Image
+              src={A}
+              placeholder="blur"
+              // layout="responsive"
+              alt={'ok'}
+              className="object-cover"
+            />
+          </div>
         </Container>
       </Section>
     </div>

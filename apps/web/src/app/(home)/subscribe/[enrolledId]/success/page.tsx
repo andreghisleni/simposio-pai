@@ -31,13 +31,13 @@ export default async function SubscribeSuccess({
           Olá {enrolled.name}, inscrição realizada com sucesso!
         </h1>
         <h2 className="text-xl">
-          Caso não queria submeter nem um trabalho ou astro-fotografia, Obrigado
-          por se inscrever, em breve entraremos em contato.
+          Caso não queira submeter um trabalho ou astrofotografia neste momento,
+          agradecemos por sua inscrição. Um link para a área do inscrito foi
+          enviado para seu e-mail, caso necessite acessá-la posteriormente.
         </h2>
 
         <h2 className="text-xl">
-          Caso queira submeter um trabalho ou astro-fotografia, clique nos
-          botões abaixo.
+          Caso queira submeter um trabalho ou astrofotografia, clique abaixo.
         </h2>
 
         <div className="flex justify-between gap-4">
