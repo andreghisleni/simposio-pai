@@ -44,7 +44,7 @@ jobs:
         run: pnpm install
 
       - name: Run Prisma Migrate
-        run: pnpm run db:migrate
+        run: pnpm run db:migrate:prod
 
       # - name: Install Vercel CLI
       #   run: pnpm i -g vercel@latest
