@@ -183,7 +183,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold underline hover:text-primary"
-                  href="https://docs.google.com/document/d/1jAD_DXZN3Kfy6SZoZP1dahnvhlXRNX1u/edit?usp=sharing&ouid=100877972451705059128&rtpof=true&sd=true"
+                  href="/api/astrophotographies/term-of-use"
                 >
                   Termo de Uso de Imagem
                 </a>{' '}
@@ -254,6 +254,22 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                             value={field.value?.toString()}
                             className="block w-full"
                           />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </Row>
+
+                <Row>
+                  <FormField
+                    control={form.control}
+                    name="place"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Local</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Local" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

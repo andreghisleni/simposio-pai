@@ -16,9 +16,9 @@ export default function PresentationPage() {
           A Associação Apontador de Estrelas, em parceria com a Universidade do
           Estado de Santa Catarina - UDESC Oeste, o Instituto Federal de Santa
           Catarina - IFSC, campi Chapecó e Xanxerê, a Universidade Federal da
-          Fronteira Sul – UFFS, campus Chapecó, e EEB Bom Pastor realizarão, nos
-          dias 19 e 20 de julho de 2024, o 11º Simpósio Catarinense de
-          Astronomia, em Chapecó.
+          Fronteira Sul – UFFS, campus Chapecó, e EEB Bom Pastor, realizarão,
+          nos dias 19 e 20 de julho de 2024, em Chapecó - SC, o 11º Simpósio
+          Catarinense de Astronomia.
         </p>
 
         <p>
@@ -38,8 +38,8 @@ export default function PresentationPage() {
         </p>
 
         <p>
-          No 11º Simpósio Catarinense de Astronomia teremos palestras
-          convidadas, trabalhos apresentados de forma oral e visual, mesa
+          No 11º Simpósio Catarinense de Astronomia teremos palestrantes
+          convidados, apresentação de trabalhos nas formas oral e visual, mesa
           redonda, noite de observação do céu com o telescópio e práticas de
           astrofotografia.
         </p>
@@ -48,18 +48,19 @@ export default function PresentationPage() {
           As inscrições para apresentação oral e visual de trabalhos
           desenvolvidos nos grupos de astronomia, universidades e por astrônomos
           que atuam individualmente estão abertas. Receberemos propostas de
-          trabalhos para serem apresentados até o dia 31 de maio.
+          trabalhos para serem apresentados até o dia{' '}
+          <span className="font-bold">31 de maio</span>.
         </p>
 
         <p>
-          Durante o 11º Simpósio Catarinense de Astronomia realizaremos a
-          Exposição Catarinense de Astrofotografia. A submissão de
-          astrofotografias encerra também no dia 31 de maio.
+          Durante o evento realizaremos a Exposição Catarinense de
+          Astrofotografia. A submissão de astrofotografias encerra também no dia{' '}
+          <span className="font-bold">31 de maio</span>.
         </p>
 
         <p>
           As inscrições para participação sem apresentação de trabalhos vão até
-          o dia 1° de julho.
+          o dia <span className="font-bold">1° de julho</span>.
         </p>
 
         <p>

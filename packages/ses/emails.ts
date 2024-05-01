@@ -45,7 +45,7 @@ export const new_enrolled_owner = email_base(`
   <p><strong>Data de nascimento</strong>: {{=it.birthDate}}</p>
   <p><strong>Cidade</strong>: {{=it.city}}</p>
   <p><strong>Estado</strong>: {{=it.state}}</p>
-  <p><strong>Area de atuação</strong>: {{=it.occupationArea}}</p>
+  <p><strong>Área de atuação</strong>: {{=it.occupationÁrea}}</p>
   <p><strong>Instituição</strong>: {{=it.institute}}</p>
   <p><strong>Teria interesse de hospedar-se em alojamento? Caso seja oferecido</strong>: {{=it.interestedInStayingInAccommodation}}</p>
 `)
@@ -54,9 +54,9 @@ export const new_enrolled = email_base(`
   <p>Olá, {{=it.name}}!</p>
   <p>Seu cadastro foi realizado com sucesso!</p>
   <p>Em breve entraremos em contato com mais informações.</p>
-  <p>Área do inscrito: <a href="{{=it.link}}" target="_blank" rel="noopener noreferrer">Clique aqui para acessar a area do inscrito</a></p>
-  <p>Pela area do inscrito você pode submeter trabalhos e astro fotografias.</p>
-  <p>Atenciosamente, equipe Simposio trocar nome.</p>
+  <p>Área do inscrito: <a href="{{=it.link}}" target="_blank" rel="noopener noreferrer">Clique aqui para acessar a área do inscrito</a></p>
+  <p>Pela área do inscrito você pode submeter trabalhos e astrofotografias.</p>
+  <p>Atenciosamente, equipe 11° Simpósio Catarinense de Astronomia.</p>
 `)
 
 export const new_astrophotography_owner = email_base(`
@@ -68,7 +68,7 @@ export const new_astrophotography_owner = email_base(`
   <p><strong>Data de nascimento</strong>: {{=it.birthDate}}</p>
   <p><strong>Cidade</strong>: {{=it.city}}</p>
   <p><strong>Estado</strong>: {{=it.state}}</p>
-  <p><strong>Area de atuação</strong>: {{=it.occupationArea}}</p>
+  <p><strong>Área de atuação</strong>: {{=it.occupationÁrea}}</p>
   <p><strong>Instituição</strong>: {{=it.institute}}</p>
 
   <p>Informações da astrofotografia:</p>
@@ -76,14 +76,16 @@ export const new_astrophotography_owner = email_base(`
   <p><strong>Data</strong>: {{=it.date}}</p>
   <p><strong>Equipamento</strong>: {{=it.equipment}}</p>
   <p><strong>Detalhes da imagem</strong>: {{=it.image_details}}</p>
+  <p><strong>Local</strong>: {{=it.place}}</p>
   <p><strong>Foto sem marca d'água</strong>: <a href="{{=it.link_photo}}" target="_blank" rel="noopener noreferrer">Foto</a></p>
+  <p><strong>Termos de uso</strong>: <a href="{{=it.link_terms_of_use}}" target="_blank" rel="noopener noreferrer">Termos de uso</a></p>
 `)
 
 export const new_astrophotography = email_base(`
   <p>Olá, {{=it.name}}!</p>
   <p>Sua astrofotografia {{=it.title}} foi enviada com sucesso!</p>
   <p>Em breve entraremos em contato com mais informações.</p>
-  <p>Atenciosamente, equipe Simposio trocar nome.</p>
+  <p>Atenciosamente, equipe 11° Simpósio Catarinense de Astronomia.</p>
 `)
 
 export const new_work_owner = email_base(`
@@ -95,7 +97,7 @@ export const new_work_owner = email_base(`
   <p><strong>Data de nascimento</strong>: {{=it.birthDate}}</p>
   <p><strong>Cidade</strong>: {{=it.city}}</p>
   <p><strong>Estado</strong>: {{=it.state}}</p>
-  <p><strong>Area de atuação</strong>: {{=it.occupationArea}}</p>
+  <p><strong>Área de atuação</strong>: {{=it.occupationÁrea}}</p>
   <p><strong>Instituição</strong>: {{=it.institute}}</p>
 
   <p>Informações do trabalho:</p>
@@ -110,5 +112,5 @@ export const new_work = email_base(`
   <p>Olá, {{=it.name}}!</p>
   <p>Seu trabalho {{=it.title}} foi enviado com sucesso!</p>
   <p>Em breve entraremos em contato com mais informações.</p>
-  <p>Atenciosamente, equipe Simposio trocar nome.</p>
+  <p>Atenciosamente, equipe 11° Simpósio Catarinense de Astronomia.</p>
 `)

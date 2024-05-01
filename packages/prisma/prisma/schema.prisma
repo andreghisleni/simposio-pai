@@ -119,6 +119,7 @@ model Astrophotography {
   date          DateTime
   equipment     String
   image_details String
+  place         String
 
   termsOfUse String
 

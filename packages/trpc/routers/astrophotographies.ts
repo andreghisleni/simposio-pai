@@ -23,6 +23,7 @@ export const astrophotographiesRouter = createTRPCRouter({
         equipment,
         image_details,
         termsOfUse,
+        place,
       } = input
 
       const existingAstrophotography = await prisma.astrophotography.findFirst({
@@ -61,6 +62,7 @@ export const astrophotographiesRouter = createTRPCRouter({
           equipment,
           image_details,
           termsOfUse,
+          place,
         },
       })
 
@@ -102,6 +104,7 @@ export const astrophotographiesRouter = createTRPCRouter({
             date: new Date(date).toLocaleDateString('pt-BR'),
             equipment,
             image_details,
+            place,
           },
         },
       })

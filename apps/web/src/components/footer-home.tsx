@@ -7,7 +7,7 @@ export function FooterHome() {
       <Container>
         <div className="flex flex-col items-center gap-4 px-8 py-8">
           <p className="text-sm text-muted-foreground">
-            © 2024 XI Simpósio Catarinense de Astronomia
+            © 2024 11° Simpósio Catarinense de Astronomia
           </p>
 
           <p>

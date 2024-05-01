@@ -192,7 +192,8 @@ export function SubmitWorkForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Resumo do trabalho (máximo 1000 caracteres)
+                      Resumo do trabalho (máximo 1000 caracteres) - Total de
+                      caracteres: {field.value.length}
                     </FormLabel>
                     <FormControl>
                       {/* <Input placeholder="Resumo" {...field} /> */}

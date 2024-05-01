@@ -37,7 +37,8 @@ export default async function SubscribeSuccess({
         </h2>
 
         <h2 className="text-xl">
-          Caso queira submeter um trabalho ou astrofotografia, clique abaixo.
+          Caso queira submeter um trabalho ou astrofotografia neste momento,
+          clique abaixo.
         </h2>
 
         <div className="flex justify-between gap-4">
@@ -54,7 +55,7 @@ export default async function SubscribeSuccess({
             asChild
           >
             <Link href={`/subscribe/${enrolledId}/astrophoto`}>
-              Submeter Astro-fotografia
+              Submeter Astrofotografia
             </Link>
           </Button>
         </div>

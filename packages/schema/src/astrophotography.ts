@@ -5,6 +5,7 @@ export const astrophotographyFields = {
   date: z.coerce.date(),
   equipment: z.string().min(1),
   image_details: z.string().min(1),
+  place: z.string().min(1),
 }
 
 export const astrophotographySchema = z.object(astrophotographyFields)

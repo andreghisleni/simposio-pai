@@ -21,7 +21,7 @@ export function HeaderHome() {
               </MenuLink>
               {/* <MenuLink href="/schedule">Programação</MenuLink> */}
               <MenuLink href="/astrophotography-standards">
-                Normas Astrofotografia
+                Normas Astrofotografias
               </MenuLink>
               <MenuLink href="/contact">Contato</MenuLink>
             </nav>
