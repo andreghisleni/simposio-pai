@@ -1,27 +1,26 @@
 'use client'
 
 import Image from 'next/image'
-import { useTheme } from 'next-themes'
 
 import LogoLight from '@/assets/Cabeçalho-Branco-Site.png'
 import LogoDark from '@/assets/logo-dark.png'
 import { cn } from '@/lib/utils'
 
 export function LogoEvento() {
-  const { theme } = useTheme()
-
-  const Logo = theme === 'light' ? LogoLight : LogoDark
-
-  console.log(Logo)
-
   return (
-    <div
-      className={cn(
-        theme === 'light' ? 'w-screen md:max-w-3xl lg:max-w-2xl' : 'w-96',
-      )}
-    >
-      {theme}
-      <Image src={Logo} alt="Logo" placeholder="blur" />
+    <div className={cn('w-screen md:max-w-3xl lg:max-w-2xl', 'dark:w-96')}>
+      <Image
+        src={LogoLight}
+        alt="Logo"
+        placeholder="blur"
+        className="block scale-100 transition-all dark:hidden dark:scale-0"
+      />
+      <Image
+        src={LogoDark}
+        alt="Logo"
+        placeholder="blur"
+        className="hidden scale-0 transition-all dark:block dark:scale-100"
+      />
     </div>
   )
 }

@@ -20,6 +20,9 @@ export function HeaderHome() {
                 Programação Preliminar
               </MenuLink>
               {/* <MenuLink href="/schedule">Programação</MenuLink> */}
+              <MenuLink href="/astrophotography-standards">
+                Normas Astrofotografia
+              </MenuLink>
               <MenuLink href="/contact">Contato</MenuLink>
             </nav>
 
