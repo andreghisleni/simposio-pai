@@ -120,6 +120,8 @@ model Astrophotography {
   equipment     String
   image_details String
 
+  termsOfUse String @map("terms_of_use")
+
   enrolledId String
   enrolled   Enrolled @relation(fields: [enrolledId], references: [id])
 
