@@ -187,7 +187,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                 >
                   Termo de Uso de Imagem
                 </a>{' '}
-                preenchido e assinado.
+                preenchido e assinado em PDF.
               </span>
               <span className="text-base">
                 Assine o termo de uso de imagem pelo{' '}
