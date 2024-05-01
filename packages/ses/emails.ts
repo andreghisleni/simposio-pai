@@ -77,7 +77,7 @@ export const new_astrophotography_owner = email_base(`
   <p><strong>Equipamento</strong>: {{=it.equipment}}</p>
   <p><strong>Detalhes da imagem</strong>: {{=it.image_details}}</p>
   <p><strong>Local</strong>: {{=it.place}}</p>
-  <p><strong>Foto sem marca d'água</strong>: <a href="{{=it.link_photo}}" target="_blank" rel="noopener noreferrer">Foto</a></p>
+  <p><strong>Foto sem identificação</strong>: <a href="{{=it.link_photo}}" target="_blank" rel="noopener noreferrer">Foto</a></p>
   <p><strong>Termos de uso</strong>: <a href="{{=it.link_terms_of_use}}" target="_blank" rel="noopener noreferrer">Termos de uso</a></p>
 `)
 
