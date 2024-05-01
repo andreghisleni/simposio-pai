@@ -12,4 +12,5 @@ export const astrophotographySchemaWithEnrolledId = z.object({
   ...astrophotographyFields,
   enrolledId: z.string().min(1),
   photo: z.string(),
+  termsOfUse: z.string(),
 })

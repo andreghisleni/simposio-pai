@@ -5,7 +5,7 @@ import { astrophotographySchema } from '@simposio-pai/schema'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 
@@ -40,6 +40,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
   })
 
   const [fileName0, setFileName0] = useState<string | undefined>(undefined)
+  const [fileName1, setFileName1] = useState<string | undefined>(undefined)
 
   const files = [
     useUploadFile({
@@ -57,6 +58,27 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
         })
 
         setFileName0(response.file_name)
+
+        return {
+          file_name: response.file_name,
+        }
+      },
+    }),
+    useUploadFile({
+      handleUploadFunction: async (file: File) => {
+        const response = await nativeClient.requestUploadUrl.query({
+          type: file.type as 'application/pdf',
+        })
+
+        const uploadURL = response.url
+
+        await axios.put(uploadURL, file, {
+          headers: {
+            'Content-Type': file.type,
+          },
+        })
+
+        setFileName1(response.file_name)
 
         return {
           file_name: response.file_name,
@@ -89,7 +111,7 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
 
   async function onSubmit(values: z.infer<typeof astrophotographySchema>) {
     try {
-      if (!fileName0) {
+      if (!fileName0 || !fileName1) {
         toast({
           title: 'Erro ao realizar inscrição',
           description: 'Envie as astrofotografias',
@@ -102,30 +124,31 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
         ...values,
         enrolledId,
         photo: fileName0,
+        termsOfUse: fileName1,
       })
 
       console.log('values', values)
     } catch (error) {}
   }
 
-  // useEffect(() => {
-  //   return () => {
-  //     if (fileName0) {
-  //       console.log(fileName0)
-  //     }
-  //     if (fileName1) {
-  //       console.log(fileName1)
-  //     }
+  useEffect(() => {
+    return () => {
+      if (fileName0) {
+        console.log(fileName0)
+      }
+      if (fileName1) {
+        console.log(fileName1)
+      }
 
-  //     if (fileName0 && fileName1) {
-  //       console.log('apagar todas')
-  //       nativeClient.deleteFile.query({
-  //         files: [fileName0, fileName1],
-  //       })
-  //     }
-  //     console.log('apagar')
-  //   }
-  // }, [fileName0, fileName1])
+      if (fileName0 && fileName1) {
+        console.log('apagar todas')
+        nativeClient.deleteFile.query({
+          files: [fileName0, fileName1],
+        })
+      }
+      console.log('apagar')
+    }
+  }, [fileName0, fileName1])
 
   return (
     <Section variant="callaction">
@@ -150,6 +173,44 @@ export function AstroPhotographyForm({ enrolledId }: { enrolledId: string }) {
                 ? 'Astrofotografia enviado' // eslint-disable-line
                 : 'Enviar astrofotografia sem identificação'/*eslint-disable-line*/
                 }
+                uploadType="image"
+              />
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-lg">
+                Envie o{' '}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-primary"
+                  href="https://docs.google.com/document/d/1jAD_DXZN3Kfy6SZoZP1dahnvhlXRNX1u/edit?usp=sharing&ouid=100877972451705059128&rtpof=true&sd=true"
+                >
+                  Termo de Uso de Imagem
+                </a>{' '}
+                preenchido e assinado.
+              </span>
+              <span className="text-base">
+                Assine o termo de uso de imagem pelo{' '}
+                <a
+                  href="https://www.gov.br/pt-br/servicos/assinatura-eletronica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-primary"
+                >
+                  Gov.br
+                </a>
+              </span>
+              <FileUpload
+                file={files[1]}
+                buttonTexts={
+                  ({ isFileUploading, fileUploadedName }) =>
+                    isFileUploading
+                      ? 'Enviando...'
+                      : fileUploadedName
+                ? 'Termo de Uso de Imagem enviado' // eslint-disable-line
+                : 'Enviar Termo de Uso de Imagem'/*eslint-disable-line*/
+                }
+                uploadType="pdf"
               />
             </div>
 

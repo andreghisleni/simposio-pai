@@ -6,7 +6,7 @@ import { z } from 'zod'
 
 const downloadMediaParamsSchema = z.object({
   id: z.string().uuid(),
-  file: z.enum(['photo', 'photoWithWatermark']),
+  file: z.enum(['photo', 'termsOfUse']),
 })
 
 type DownloadMediaParamsSchema = z.infer<typeof downloadMediaParamsSchema>

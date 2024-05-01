@@ -10,6 +10,7 @@ import UploadSvg from '../assets/upload-icon.svg'
 
 interface UploadProps {
   onUpload: (files: File[]) => void
+  uploadType?: 'image' | 'pdf' | 'all'
 }
 
 const UploadMessage: React.FC<{
@@ -30,14 +31,29 @@ const UploadMessage: React.FC<{
   )
 }
 
-export const Dropzone: React.FC<UploadProps> = ({ onUpload }) => {
+export const Dropzone: React.FC<UploadProps> = ({ onUpload, uploadType }) => {
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
-      accept: {
-        'image/jpeg': ['.jpeg', '.jpg'],
-        'image/png': ['.png'],
-        'application/pdf': ['.pdf'],
-      },
+      accept: uploadType
+        ? {
+            ...(uploadType === 'image' && {
+              'image/jpeg': ['.jpeg', '.jpg'],
+              'image/png': ['.png'],
+            }),
+            ...(uploadType === 'pdf' && {
+              'application/pdf': ['.pdf'],
+            }),
+            ...(uploadType === 'all' && {
+              'image/jpeg': ['.jpeg', '.jpg'],
+              'image/png': ['.png'],
+              'application/pdf': ['.pdf'],
+            }),
+          }
+        : {
+            'image/jpeg': ['.jpeg', '.jpg'],
+            'image/png': ['.png'],
+            'application/pdf': ['.pdf'],
+          },
       onDropAccepted: (files) => onUpload(files),
     })
 

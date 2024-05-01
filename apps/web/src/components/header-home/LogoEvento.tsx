@@ -21,7 +21,7 @@ export function LogoEvento() {
       )}
     >
       {theme}
-      <Image src={Logo} alt="Logo" placeholder="blur" layout="responsive" />
+      <Image src={Logo} alt="Logo" placeholder="blur" />
     </div>
   )
 }

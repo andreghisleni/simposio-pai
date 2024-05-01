@@ -21,12 +21,15 @@ type FileUploadProps = {
   }
 
   buttonTexts?: (b: ButtonProps) => string
+
+  uploadType?: 'image' | 'pdf' | 'all'
 }
 
 export function FileUpload({
   file,
   fileUploaded,
   buttonTexts,
+  uploadType,
 }: FileUploadProps) {
   return (
     <div className="flex w-full max-w-[600px] flex-col gap-4">
@@ -68,7 +71,7 @@ export function FileUpload({
           </>
         ) : (
           <div className="h-full w-full p-4">
-            <Dropzone onUpload={file.handleUpload} />
+            <Dropzone onUpload={file.handleUpload} uploadType={uploadType} />
           </div>
         )}
       </Card>
