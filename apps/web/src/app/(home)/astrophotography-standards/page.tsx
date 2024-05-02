@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 
 import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
+import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Normas Astrofotografia',
@@ -52,7 +53,7 @@ export default function AstrophotographyStandardsPage() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline hover:text-primary"
+              className="text-xl font-bold underline hover:text-primary"
               href="/api/astrophotographies/term-of-use"
             >
               (Anexo Único)
@@ -125,18 +126,21 @@ export default function AstrophotographyStandardsPage() {
             termos deste regulamento.
           </li>
         </ol>
+        <Button asChild>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8"
+            href="/api/astrophotographies/term-of-use"
+          >
+            Baixar anexo único
+          </a>
+        </Button>
 
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
+        <iframe
+          src="https://docs.google.com/document/d/e/2PACX-1vTYzp7Ycuctl1m3sWpD2fZi1w3CBtY_v89XN1xxL077w8j0Keoc0GC21qxUcoo69w/pub?embedded=true"
           className="mt-8 h-[600px] w-full max-w-[800px]"
-          href="/api/astrophotographies/term-of-use"
-        >
-          <iframe
-            src="https://docs.google.com/document/d/e/2PACX-1vTYzp7Ycuctl1m3sWpD2fZi1w3CBtY_v89XN1xxL077w8j0Keoc0GC21qxUcoo69w/pub?embedded=true"
-            className="mt-8 h-[600px] w-full max-w-[800px]"
-          ></iframe>
-        </a>
+        ></iframe>
       </Container>
     </Section>
   )
