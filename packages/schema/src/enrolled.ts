@@ -16,7 +16,7 @@ export const enrolledFields = {
   state: z.string().min(1),
   occupationArea: z.string().min(1),
   institute: z.string().min(1),
-  interestedInStayingInAccommodation: z.boolean().default(false),
+  interestedInStayingInAccommodation: z.coerce.boolean().default(false),
 }
 
 export const enrolledSchema = z.object(enrolledFields)
