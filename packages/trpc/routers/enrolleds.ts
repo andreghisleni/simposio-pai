@@ -212,4 +212,10 @@ export const enrolledsRouter = createTRPCRouter({
 
       return { enrolled: updatedEnrolled }
     }),
+
+  totalEnrolleds: publicProcedure.query(async () => {
+    const totalEnrolleds = await prisma.enrolled.count()
+
+    return { totalEnrolleds }
+  }),
 })
