@@ -75,15 +75,15 @@ export const authConfig = {
       const isOnPublicAPIRoutes = nextUrl.pathname.startsWith('/api/auth')
       const isOnAPIRoutes = nextUrl.pathname.startsWith('/api')
       const isOnPrivatePages = nextUrl.pathname.startsWith('/app')
-      const isOnPublicPages = !isOnPrivatePages
+      // const isOnPublicPages = !isOnPrivatePages
 
       if (isOnWebhooks || isOnPublicAPIRoutes) {
         return true
       }
 
-      if (!isOnPublicPages && !isOnAPIRoutes && isLoggedIn) {
-        return Response.redirect(new URL('/app', nextUrl))
-      }
+      // if (!isOnPublicPages && !isOnAPIRoutes && isLoggedIn) {
+      //   return Response.redirect(new URL('/app', nextUrl))
+      // }
 
       if (isOnAPIRoutes && !isLoggedIn) {
         return Response.json({ message: 'Unauthorized.' }, { status: 401 })

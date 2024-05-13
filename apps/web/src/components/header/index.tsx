@@ -23,11 +23,8 @@ export function Header() {
           <Separator orientation="vertical" className="h-6" />
 
           <nav className="flex items-center space-x-2 lg:space-x-3">
-            <MenuLink href="/dashboard">Dashboard</MenuLink>
-            <MenuLink href="/schedule">Agenda</MenuLink>
-            <MenuLink href="/clients">Pacientes</MenuLink>
-            {/* <MenuLink href="/months">Meses</MenuLink>
-            <MenuLink href="/uploads">Uploads</MenuLink> */}
+            <MenuLink href="/app/dashboard">Dashboard</MenuLink>
+            <MenuLink href="/app/enrolleds">Inscrições</MenuLink>
           </nav>
         </div>
 

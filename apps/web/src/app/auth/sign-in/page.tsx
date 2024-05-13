@@ -28,42 +28,23 @@ export default function SignInPage() {
           />
 
           <div className="space-y-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">simposio-pai</h1>
-            <p className="text-sm text-muted-foreground">
-              Tudo para a gestão da sua clínica em um só lugar.
-            </p>
+            <h1 className="text-2xl font-semibold tracking-tight">
+              simposio-pai
+            </h1>
           </div>
         </div>
         <div>
-          {/* {env.VERCEL_ENV === 'preview' ? ( */}
           <SignInForm />
-          {/* ) : ( */}
-          {/* <form action={signInWithGithub} method="POST">
-            <SignInWithGoogleButton />
-          </form> */}
-          {/* )} */}
         </div>
-        {/* <p className="px-8 text-center text-sm leading-relaxed text-muted-foreground">
-          By clicking continue, you agree to our{' '}
-          <a
-            href="https://www.rocketseat.com.br/terms"
-            className="underline underline-offset-4 hover:text-primary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Terms of Service
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://www.rocketseat.com.br/privacy"
-            className="underline underline-offset-4 hover:text-primary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Privacy Policy
-          </a>
-          .
-        </p> */}
+
+        <div className="flex flex-col items-center space-y-2">
+          <div className="text-sm text-gray-500">
+            Don`t have an account?{' '}
+            <a href="/auth/register" className="text-blue-500">
+              Register
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )

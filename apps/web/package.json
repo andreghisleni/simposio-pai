@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm env:load next dev -p 5050",
+    "dev": "pnpm env:load next dev -p 5500",
     "build": "pnpm env:load next build",
-    "start": "pnpm env:load next start -p 5050",
+    "start": "pnpm env:load next start -p 5500",
     "lint": "eslint .",
     "env:load": "dotenv -e ../../.env --"
   },
