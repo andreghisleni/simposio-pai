@@ -78,7 +78,9 @@ export function SubscribeForm() {
       await createClinic.mutateAsync(values)
 
       console.log('values', values)
-    } catch (error) {}
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -87,7 +89,7 @@ export function SubscribeForm() {
         <Section variant="callaction">
           <Container className="space-y-8">
             <h2 className="text-center text-3xl font-bold text-primary">
-              Inscreva-se
+              Inscreva-se (Lista de espera)
             </h2>
 
             <Row>

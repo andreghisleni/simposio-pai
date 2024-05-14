@@ -27,8 +27,9 @@ export default async function SubscribeSuccess({
   return (
     <Section>
       <Container className="max-w-lg space-y-8 text-center">
-        <h1 className="text-3xl font-bold text-primary">
-          Olá {enrolled.name}, inscrição realizada com sucesso!
+        <h1 className="text-3xl text-primary">
+          Olá {enrolled.name}, inscrição realizada com sucesso{' '}
+          <strong>na lista de espera</strong>!
         </h1>
         <h2 className="text-xl">
           Caso não queira submeter um trabalho ou astrofotografia neste momento,
@@ -54,7 +55,7 @@ export default async function SubscribeSuccess({
             className="bg-primary hover:bg-primary/75 dark:bg-primary dark:text-white dark:hover:bg-primary/75"
             asChild
           >
-            <Link href={`/subscribe/${enrolledId}/astrophoto`}>
+            <Link href={`/subscribe/${enrolledId}/submit-astrophoto`}>
               Submeter Astrofotografia
             </Link>
           </Button>

@@ -70,7 +70,7 @@ export default function Homepage() {
             11° Simpósio Catarinense de Astronomia
           </h1>
           <Button asChild className="bg-primary hover:bg-primary/75" size="lg">
-            <Link href="/subscribe">Inscreva-se</Link>
+            <Link href="/subscribe">Inscreva-se (Lista de espera)</Link>
           </Button>
         </Container>
       </Section>

@@ -52,10 +52,10 @@ export const new_enrolled_owner = email_base(`
 
 export const new_enrolled = email_base(`
   <p>Olá, {{=it.name}}!</p>
-  <p>Seu cadastro foi realizado com sucesso!</p>
+  <p>Seu cadastro foi realizado com sucesso, <strong>na lista de espera</strong>!</p>
   <p>Em breve entraremos em contato com mais informações.</p>
   <p>Área do inscrito: <a href="{{=it.link}}" target="_blank" rel="noopener noreferrer">Clique aqui para acessar a área do inscrito</a></p>
-  <p>Pela área do inscrito você pode submeter trabalhos e astrofotografias.</p>
+  <p>Apesar de estar na lista de espera, na área do inscrito você pode submeter trabalhos e astrofotografias.</p>
   <p>Atenciosamente, equipe 11° Simpósio Catarinense de Astronomia.</p>
 `)
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function Subscribe() {
   const totalEnrolleds = await serverClient.totalEnrolleds()
 
-  if (totalEnrolleds.totalEnrolleds > 100) {
+  if (totalEnrolleds.totalEnrolleds > 150) {
     return (
       <div className="flex h-full min-h-screen w-full justify-center">
         <h1 className="text-4xl">Sorry, we are full!</h1>
