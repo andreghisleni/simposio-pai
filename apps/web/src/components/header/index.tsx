@@ -27,7 +27,7 @@ export function Header() {
             <MenuLink href="/app/enrolleds">Inscrições</MenuLink>
             <MenuLink href="/app/works">Trabalhos inscritos</MenuLink>
             <MenuLink href="/app/astrophoto">
-              Astrofotografias inscritas
+              Astrofotografias submetidas
             </MenuLink>
           </nav>
         </div>
