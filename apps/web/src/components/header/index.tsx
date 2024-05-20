@@ -25,6 +25,10 @@ export function Header() {
           <nav className="flex items-center space-x-2 lg:space-x-3">
             <MenuLink href="/app/dashboard">Dashboard</MenuLink>
             <MenuLink href="/app/enrolleds">Inscrições</MenuLink>
+            <MenuLink href="/app/works">Trabalhos inscritos</MenuLink>
+            <MenuLink href="/app/astrophoto">
+              Astrofotografias inscritas
+            </MenuLink>
           </nav>
         </div>
 

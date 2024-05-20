@@ -31,28 +31,18 @@ export const worksRouter = createTRPCRouter({
   //     }
   //   }),
 
-  // getWorks: protectedProcedure
-  //   .input(
-  //     z.object({
-  //       name: z.string().optional(),
-  //     }),
-  //   )
-  //   .query(async ({ input }) => {
-  //     const { name } = input
+  getWorks: protectedProcedure.query(async () => {
+    const works = await prisma.work.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
+      include: {
+        enrolled: true,
+      },
+    })
 
-  //     const works = await prisma.work.findMany({
-  //       orderBy: {
-  //         name: 'asc',
-  //       },
-  //       where: {
-  //         name: {
-  //           contains: name,
-  //         },
-  //       },
-  //     })
-
-  //     return { works }
-  //   }),
+    return { works }
+  }),
 
   createWork: publicProcedure
     .input(workSchemaWithEnrolledId)

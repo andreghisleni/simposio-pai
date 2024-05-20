@@ -45,9 +45,7 @@ export const enrolledsRouter = createTRPCRouter({
       const { name } = input
 
       const enrolleds = await prisma.enrolled.findMany({
-        orderBy: {
-          name: 'asc',
-        },
+        orderBy: { createdAt: 'asc' },
         where: {
           name: {
             contains: name,

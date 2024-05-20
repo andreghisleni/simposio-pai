@@ -9,7 +9,7 @@ import {
 } from '@simposio-pai/ses'
 import { TRPCError } from '@trpc/server'
 
-import { createTRPCRouter, publicProcedure } from '../trpc'
+import { createTRPCRouter, protectedProcedure, publicProcedure } from '../trpc'
 
 export const astrophotographiesRouter = createTRPCRouter({
   createAstrophotography: publicProcedure
@@ -126,4 +126,17 @@ export const astrophotographiesRouter = createTRPCRouter({
 
       return { astrophotography }
     }),
+
+  getAstrophotographies: protectedProcedure.query(async () => {
+    const astrophotographies = await prisma.astrophotography.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      include: {
+        enrolled: true,
+      },
+    })
+
+    return { astrophotographies }
+  }),
 })
