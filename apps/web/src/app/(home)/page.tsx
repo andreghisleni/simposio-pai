@@ -72,9 +72,7 @@ export default function Homepage() {
           {/* <Button asChild className="bg-primary hover:bg-primary/75" size="lg">
             <Link href="/subscribe">Inscreva-se (Lista de espera)</Link>
           </Button> */}
-          <h2 className="text-2xl font-bold">
-            Inscrições encerradas, o prazo limite era 31/05/2024
-          </h2>
+          <h2 className="text-2xl font-bold">Inscrições encerradas.</h2>
         </Container>
       </Section>
       <Section>
