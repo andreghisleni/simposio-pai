@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 
 import { serverClient } from '@/lib/trpc/server'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Subscribe() {
+  redirect('/subscribe/finished')
   const totalEnrolleds = await serverClient.totalEnrolleds()
 
   if (totalEnrolleds.totalEnrolleds > 150) {

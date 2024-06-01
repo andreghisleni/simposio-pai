@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { unstable_noStore } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 // import { serverClient } from '@/lib/trpc/server'
 import { AstroPhotographyForm } from './submit-astro-photography-form'
@@ -16,6 +17,7 @@ export default async function SubmitWork({
   }
 }) {
   unstable_noStore()
+  redirect('/subscribe/finished')
 
   // const { enrolled } = await serverClient.getEnrolled({
   //   id: enrolledId,

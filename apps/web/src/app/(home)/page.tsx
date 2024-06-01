@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
+// import Link from 'next/link'
 // import Apoiador1 from '@/assets/apoiadores/new/Apoiadores1.png'
 // import Apoiador2 from '@/assets/apoiadores/new/Apoiadores2.png'
 // import Apoiador3 from '@/assets/apoiadores/new/Apoiadores3.png'
@@ -14,7 +14,7 @@ import Link from 'next/link'
 import A from '@/assets/Logos-Organizadores-SIte.png'
 import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 // import { Separator } from '@/components/ui/separator'
 
 // const apoiadores = [
@@ -69,9 +69,12 @@ export default function Homepage() {
           <h1 className="text-4xl font-bold text-primary">
             11° Simpósio Catarinense de Astronomia
           </h1>
-          <Button asChild className="bg-primary hover:bg-primary/75" size="lg">
+          {/* <Button asChild className="bg-primary hover:bg-primary/75" size="lg">
             <Link href="/subscribe">Inscreva-se (Lista de espera)</Link>
-          </Button>
+          </Button> */}
+          <h2 className="text-2xl font-bold">
+            Inscrições encerradas, o prazo limite era 31/05/2024
+          </h2>
         </Container>
       </Section>
       <Section>
