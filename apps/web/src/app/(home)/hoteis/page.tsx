@@ -11,9 +11,7 @@ export default function PresentationPage() {
   return (
     <Section variant="callaction">
       <Container className="flex flex-col items-center gap-4">
-        <h1 className="text-4xl font-bold text-primary">
-          Hotéis selecionados pela nossa equipe
-        </h1>
+        <h1 className="text-4xl font-bold text-primary">Lista de hotéis</h1>
         <iframe
           src="https://drive.google.com/file/d/1bp_8PBZnov87t5AioN7BPn7lLkB9CRGO/preview?theme=light"
           // width="640"
