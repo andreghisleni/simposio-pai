@@ -23,6 +23,7 @@ export function HeaderHome() {
               <MenuLink href="/astrophotography-standards">
                 Regulamento das astrofotografias
               </MenuLink>
+              <MenuLink href="/hoteis">Lista de hotéis</MenuLink>
               <MenuLink href="/contact">Contato</MenuLink>
             </nav>
 

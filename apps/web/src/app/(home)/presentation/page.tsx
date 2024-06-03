@@ -60,7 +60,8 @@ export default function PresentationPage() {
 
         <p>
           As inscrições para participação sem apresentação de trabalhos vão até
-          o dia <span className="font-bold">1° de julho</span>.
+          o dia <s>1° de julho</s>
+          <span className="font-bold"> 31 de maio</span>.
         </p>
 
         <p>
