@@ -5,6 +5,7 @@ import { Loading } from '@/components/summary/loading'
 import { Storage } from '@/components/summary/storage'
 import { TotalCount } from '@/components/summary/total-count'
 
+import { Astrophotographies } from './astrophotographies'
 import { ViewsCount } from './cards/views-count'
 
 export const metadata: Metadata = {
@@ -18,6 +19,12 @@ export default function DashboardPage() {
     <>
       <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
       <div className="grid grid-cols-6 gap-4">
+        <div className="col-span-2">
+          <Suspense fallback={<Loading />}>
+            <Astrophotographies />
+          </Suspense>
+        </div>
+
         <div className="col-span-2">
           <Suspense fallback={<Loading />}>
             <TotalCount />

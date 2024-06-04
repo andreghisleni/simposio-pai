@@ -43,6 +43,7 @@ export function SignInForm() {
       redirect: false,
       callbackUrl: '/',
     })
+    console.log(response)
 
     if (response?.error) {
       toast({

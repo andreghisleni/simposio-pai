@@ -20,7 +20,9 @@ export const credentialsProvider = CredentialsProvider({
     },
   },
   async authorize(credentials) {
+    console.log(credentials)
     if (!credentials.email || !credentials.password) {
+      console.log('no credentials')
       return null
     }
 
@@ -31,6 +33,7 @@ export const credentialsProvider = CredentialsProvider({
     })
 
     if (!userExists) {
+      console.log('no user')
       return null
     }
 
@@ -39,7 +42,10 @@ export const credentialsProvider = CredentialsProvider({
       userExists.passwordHash,
     )
 
+    console.log(passwordMatch)
+
     if (!passwordMatch) {
+      console.log('no password match')
       return null
     }
     return {
