@@ -1,5 +1,6 @@
 import './globals.css'
 
+import { env } from '@simposio-pai/env'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
@@ -23,6 +24,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
+      {env.NODE_ENV === 'production' && (
+        <script
+          defer
+          data-domain="evento.ensinoastronomiaoestesc.com.br"
+          src="https://analytics.andreg.com.br/js/script.js"
+        ></script>
+      )}
+
       <body className="antialiased">
         <Providers>
           {children}
