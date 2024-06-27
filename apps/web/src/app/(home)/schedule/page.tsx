@@ -5,7 +5,7 @@ import { Section } from '@/components/my-ui/section'
 import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
-  title: 'Programação',
+  title: 'Programação Definitiva',
 }
 
 const schedule = [
