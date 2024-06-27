@@ -5,7 +5,7 @@ import { Section } from '@/components/my-ui/section'
 import { Separator } from '@/components/ui/separator'
 
 export const metadata: Metadata = {
-  title: 'Programação Preliminar',
+  title: 'Programação',
 }
 
 const schedule = [
@@ -101,7 +101,7 @@ const schedule = [
           'Prof. Diego de Bastiani (SEDUC Chapecó/Associação Apontador de Estrelas) – Mediador',
         ],
       },
-      { time: '15h00', text: 'Apresentações das dos grupos de astronomia' },
+      { time: '15h00', text: 'Apresentações dos grupos de astronomia' },
       { time: '15h45', text: 'Assembleia' },
       { time: '17h00', text: 'Encerramento' },
     ],
@@ -112,9 +112,7 @@ export default function PresentationPage() {
   return (
     <Section variant="callaction">
       <Container className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold text-primary">
-          Programação Preliminar
-        </h1>
+        <h1 className="text-4xl font-bold text-primary">Programação</h1>
         <h2 className="text-2xl">
           Local: EEB Bom Pastor - R. Florianópolis, 314 E - Centro, Chapecó
         </h2>
