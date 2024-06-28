@@ -11,7 +11,7 @@ import Image from 'next/image'
 // import Apoiador8 from '@/assets/apoiadores/new/Apoiadores8.png'
 // import Apoiador9 from '@/assets/apoiadores/new/Apoiadores9.png'
 // //
-import A from '@/assets/Logos-Organizadores-SIte.png'
+import A from '@/assets/Logos-Organizadores-SIte-new.jpeg'
 import { Container } from '@/components/my-ui/container'
 import { Section } from '@/components/my-ui/section'
 // import { Button } from '@/components/ui/button'
